@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 监控系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦞 OpenClaw 监控系统</h1>
+            <div class="header-info">
+                <span id="server-time">--:--:--</span>
+                <button id="refresh-btn" class="btn">刷新数据</button>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- 系统信息卡片 -->
+            <div class="card">
+                <h2>系统信息</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">OpenClaw 版本:</span>
+                        <span id="openclaw-version" class="value">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">数据库状态:</span>
+                        <span id="db-status" class="value status-healthy">已连接</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">最后更新:</span>
+                        <span id="last-update" class="value">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 健康状态卡片 -->
+            <div class="card">
+                <h2>健康状态</h2>
+                <div class="health-status">
+                    <div class="status-indicator" id="health-indicator">
+                        <span class="status-dot"></span>
+                        <span id="health-text">检查中...</span>
+                    </div>
+                    <div class="health-details" id="health-details"></div>
+                </div>
+            </div>
+
+            <!-- 频道状态卡片 -->
+            <div class="card">
+                <h2>频道状态</h2>
+                <div class="channels-status">
+                    <div class="stat-box">
+                        <div class="stat-value" id="channels-healthy">0</div>
+                        <div class="stat-label">健康频道</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="channels-total">0</div>
+                        <div class="stat-label">总频道数</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="channels-percentage">0%</div>
+                        <div class="stat-label">健康率</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 代理信息卡片 -->
+            <div class="card">
+                <h2>代理列表</h2>
+                <div class="agents-list" id="agents-list">
+                    <p class="loading">加载中...</p>
+                </div>
+            </div>
+
+            <!-- 活动会话卡片 -->
+            <div class="card">
+                <h2>活动会话</h2>
+                <div class="sessions-list" id="sessions-list">
+                    <p class="loading">加载中...</p>
+                </div>
+            </div>
+
+            <!-- 历史趋势图 -->
+            <div class="card chart-card">
+                <h2>频道健康趋势（24小时）</h2>
+                <canvas id="health-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

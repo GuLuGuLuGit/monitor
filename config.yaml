@@ -1,0 +1,17 @@
+openclaw:
+  path: "E:/openclaw/openclaw"
+  node_path: "node"  # 或者指定完整路径，如 "C:/Program Files/nodejs/node.exe"
+
+server:
+  port: "8080"
+  host: "localhost"
+
+database:
+  path: "./data/monitor.db"
+
+collector:
+  interval: 60  # 秒
+  timeout: 30   # 命令执行超时（秒）
+
+retention:
+  days: 30  # 数据保留天数
